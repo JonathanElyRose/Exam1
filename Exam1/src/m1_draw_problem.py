@@ -101,4 +101,6 @@ def draw_a_picture(point, n, color, window):
         circle.attach_to(window)
     window.render(0.5)
 
+    return
+
 main()
