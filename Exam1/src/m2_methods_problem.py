@@ -58,7 +58,7 @@ def is_prime(n):
 
 def test_count_primes():
     ###############################################################################
-    # TODO: 2  READ the doc-string for the count_primes function below,
+    # DONE: 2  READ the doc-string for the count_primes function below,
     #   but DO NOT begin coding.
     # After you have READ this, change its _TODO_ to DONE.
     ###############################################################################
@@ -69,11 +69,24 @@ def test_count_primes():
     print('Actual count = ', count_primes(1, 3))
 
     ###############################################################################
-    #   TODO: 3. Add the additional test cases for this function below
+    #   DONE: 3. Add the additional test cases for this function below
     # After you have coded this, change its _TODO_ to DONE.
     ###############################################################################
     print()
     print('Your tests will go here!')
+    print()
+    print('#######################################')
+    print('Test 2 of count primes')
+    print('m = 4 and n = 8')
+    print('Expected count = 2')
+    print('Actual count = ', count_primes(4, 8))
+    print()
+    print('#######################################')
+    print('Test 3 of count primes')
+    print('m = 1 and n = 20')
+    print('Expected count = 8')
+    print('Actual count = ', count_primes(1, 20))
+
     return
 
 
@@ -115,16 +128,19 @@ def count_primes(m,n):
     #     second and third examples above
     """
     ################################################################################
-    #   TODO: 4. Write the function count_primes(m,n) below here
+    #   DONE: 4. Write the function count_primes(m,n) below here
     # After you have coded and tested, change its _TODO_ to DONE.
     ################################################################################
-
-    return
+    total = 0
+    for k in range(n - m + 1):
+        if is_prime(m + k):
+            total = total + 1
+    return total
 
 
 def test_multiply_primes():
     ################################################################################
-    #   TODO: 6. Read the doc string for multiply_primes, below, then
+    #   DONE: 6. Read the doc string for multiply_primes, below, then
     #       then read the test cases here.
     #   After you have read both, change this _TODO_ to DONE.
     ###############################################################################
@@ -169,9 +185,16 @@ def multiply_primes(m,n):
        #     since 2*3*5*7 is 210
        """
     ################################################################################
-    #   TODO: 6. Write the function multiply_primes(m,n) below here
+    #   DONE: 6. Write the function multiply_primes(m,n) below here
     # After you have coded and tested, change this _TODO_ to DONE.
     ###############################################################################
+    if count_primes(m, n) == 0:
+        return 0
+    total = 1
+    for k in range(n - m + 1):
+        if is_prime(m + k):
+            total = total * (m + k)
+    return total
 
 
 main()
